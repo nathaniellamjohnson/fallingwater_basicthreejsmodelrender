@@ -1,8 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import MeshoptDecoder from 'meshoptimizer';
-
 
 const scene = new THREE.Scene();
 
@@ -67,10 +65,9 @@ const controls = new OrbitControls(camera, renderer.domElement);
 // Load Model
 const loader = new GLTFLoader();
 // Before loading, set the MeshoptDecoder
-loader.setMeshoptDecoder(MeshoptDecoder);
 let model;
 
-loader.load('/model-compressed.glb', (gltf) => {
+loader.load('/model.glb', (gltf) => {
   model = gltf.scene;
   scene.add(model);
 });
